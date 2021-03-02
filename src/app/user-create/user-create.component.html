@@ -1,0 +1,31 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Create Employee</h3>
+      <button style="float:right;" class="btn btn-primary" routerLink="/UserList"><span class="fa fa-list"></span></button>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="user.UserName" class="form-control" placeholder="User Name">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="user.FullName" class="form-control" placeholder="Full Name">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="user.Mobile" class="form-control" placeholder="Mobile">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="user.email" class="form-control" placeholder="Email">
+      </div>
+  
+      <div class="form-group">
+        <input type="password" [(ngModel)]="user.Password" class="form-control" placeholder="Password">
+      </div>
+  
+      <div class="form-group">
+        <button *ngIf="!IsEdit"  class="btn btn-success pull-right" (click)="addUser()">Save</button>
+        <button *ngIf="IsEdit" class="btn btn-success pull-right" (click)="updateUser()">Update</button>
+      </div>
+  
+    </div>
+  </div>

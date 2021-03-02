@@ -1,16 +1,24 @@
 <!-- Show it when there is no User -->
 <div class="no-data text-center" *ngIf="User.length == 0">
     <p>There is no User added yet!</p>
-    <button class="btn btn-outline-primary" routerLink="/create-employee">Add Empoyee</button>
+    <button class="btn btn-primary" routerLink="/UserCreate">Add Empoyee</button>
   </div>
 
   <!-- Users list table, it hides when there is no User -->
   <div *ngIf="User.length !== 0">
-    <h3 class="mb-3 text-center">User List</h3>
-
     <div class="col-md-12">
       <table class="table table-bordered">
         <thead>
+          <tr>
+            <th colspan="6">
+              <div>
+                <h3 class="mb-3 text-center">User List</h3>
+              </div>
+              <div> 
+                <button style="float:right;" class="btn btn-primary" routerLink="/UserCreate"><span class="fa fa-plus"></span></button>
+              </div>
+            </th>
+          </tr>
           <tr>
             <th scope="col">User Id</th>
             <th scope="col">UserName</th>
@@ -28,8 +36,8 @@
             <td>{{user.Mobile}}</td>
             <td>{{user.email}}</td>
             <td>
-              <span class="edit" routerLink="/employee-edit/{{user.id}}">Edit</span>
-              <!-- <span class="delete" (click)="alert(user.id)">Delete</span> -->
+              <button class="btn btn-primary edit" routerLink="/UserEdit/{{user.id}}"><span class="fa fa-edit"></span></button>
+              <button class="btn btn-danger edit"(click)="deleteUser(user.id, user.FullName)"><span class="fa fa-trash"></span></button>
             </td>
           </tr>
         </tbody>
